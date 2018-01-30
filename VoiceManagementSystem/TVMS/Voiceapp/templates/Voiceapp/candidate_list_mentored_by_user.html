@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Candidates</h1>
+
+
+    {% if object_list %}
+
+        <table>
+            <tr>
+            <th>Candiadte</th>
+            <th>Team</th>
+
+            </tr>
+
+        {% for inst in object_list %}
+            <tr>
+            <th><a href="{%url 'Voiceapp:my_activities' inst.id%}">{{inst.candidate_name}} </a></th>
+            <th>{{inst.team}}</th>
+
+            </tr>
+
+
+        {% endfor %}
+        </table>
+
+
+
+    {% else %}
+      <p>There are no Candidates mentored.</p>
+    {% endif %}       
+{% endblock %}

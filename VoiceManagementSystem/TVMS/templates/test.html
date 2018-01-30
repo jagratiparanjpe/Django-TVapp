@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  {% if user.is_superuser %}
+
+    <h1>Welcome Admin</h1>
+    <h2><a href="{% url 'Voiceapp:my_teams'%}"> Teams</a></h2>
+
+
+  {%else%}
+    <h1>Welcome {{request.user.username}} !!! </h1>
+    <h2><a href="{% url 'Voiceapp:my_candidates'%}"> Candidates</a></h2>
+
+
+  {%endif%}
+
+</div>
+
+{% endblock %}

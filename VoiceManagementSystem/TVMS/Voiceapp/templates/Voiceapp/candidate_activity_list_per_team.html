@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Team = {{team.team_name}}</h1>
+    {%if candidate_activities%}
+        <h2>Activity Details here</h2>
+
+        <table>
+            <tr>
+                <th>Song Name</th>
+                <th>Date of Performance</th>
+                <th>Candidate Name</th>
+            </tr>
+            {% for can in candidate_activities %}
+            <tr>
+                <td>{{can.song_name}}</td>
+                <td>{{can.Date_of_performance}}</td>
+                <td>{{can.candidate.candidate_name}}</td>
+            </tr>
+            {%endfor%}
+
+
+        </table>
+    {%else%}
+        <p> No Activity by candiadtes</p>
+    {%endif%}
+
+{% endblock %}

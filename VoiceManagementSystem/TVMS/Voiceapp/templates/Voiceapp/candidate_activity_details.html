@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Activity Details for : {{candidate.candidate_name}}</h1>
+
+    <table>
+      <tr>
+        <th>Song Name</th>
+        <th>Date of Performance</th>
+        <th>Average Score</th>
+      </tr>
+        {%for act in activities%}
+        <tr>
+            <td>{{act.song_name}}</td>
+            <td>{{act.Date_of_performance}}</td>
+            <td>{{act.average_score|floatformat:2}}</td>
+
+        </tr>
+        {%endfor%}
+
+    </table>
+
+<h2> Candidate's average score : {{final_score|floatformat:2}}</h2>
+{% endblock %}

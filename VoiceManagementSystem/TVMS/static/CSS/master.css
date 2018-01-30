@@ -1,0 +1,21 @@
+
+html,
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: lightblue;
+  margin: 0;
+}
+
+
+
+
+table, th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid black;
+}
+
+

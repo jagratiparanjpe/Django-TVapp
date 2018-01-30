@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method = 'GET' action="{%url 'Voiceapp:search' %}">
+    <input name="q" value="{{request.GET.q}}" placeholder="Search here...">
+    <button class="btn btn_sucess" type="submit"> Search
+    </button>
+
+</form>
+    <h1>Teams Details:</h1>
+    {%if score %}
+        <table>
+            <tr>
+            <th>Team</th>
+            <th>Team Average Score</th>
+
+            </tr>
+        {%for s in score %}
+            <tr>
+            <th><a href="{% url 'Voiceapp:team_candidate' s.id %}">{{s.team_name}}</a></th>
+            <th>Average Score={{s.average_score|floatformat:2}}</th>
+
+            </tr>
+        {%endfor%}
+
+        </table>
+
+
+    {% else %}
+      <p>There are no Teams mentored.</p>
+    {%endif%}
+
+{% endblock %}
